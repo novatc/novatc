@@ -1,27 +1,55 @@
 import React, {useState} from 'react'
 import {FaBars, FaTimes, FaGithub, FaLinkedin} from "react-icons/fa";
-import {HiOutlineMail} from "react-icons/hi";
 import {BsFillPersonFill} from "react-icons/bs";
 import Logo from '../assets/logo.png'
+import resumePdf from '../assets/CV.pdf'; // Adjust the path accordingly to your file structure
+
+import {Link} from 'react-scroll'
 
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
     const handleClick = () => setNav(!nav)
+    const downloadPdf = () => {
+        // Replace 'your-pdf-url.pdf' with the actual URL of your PDF file.
+        const pdfUrl = '../assets/your-pdf-url.pdf';
+        window.open(pdfUrl, '_blank');
+    };
+
+
     return (
         <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
             <div>
-                <img src={Logo} alt={'Logo image'} style={{width: '80px'}}/>
+                <img src={Logo} style={{width: '80px'}}/>
             </div>
 
             {/* Menu*/}
             <ul className='hidden md:flex'>
-                <li>Home</li>
-                <li>About</li>
-                <li>Skills</li>
-                <li>Projects</li>
-                <li>API</li>
-                <li>Contact</li>
+                <li>
+                    <Link to="home" smooth={true} duration={500}>
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link to="about" smooth={true} duration={500}>
+                        About
+                    </Link>
+                </li>
+                <li>
+                    <Link to="skills" smooth={true} duration={500}>
+                        Skills
+                    </Link>
+                </li>
+                <li>
+                    <Link to="projects" smooth={true} duration={500}>
+                        Projects
+                    </Link>
+                </li>
+                <li>
+                    <Link to="contact" smooth={true} duration={500}>
+                        Projects
+                    </Link>
+                </li>
             </ul>
 
             {/* Hamburger*/}
@@ -31,12 +59,31 @@ const Navbar = () => {
 
             {/* Mobile menu*/}
             <ul className={!nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'}>
-                <li className={'py-6 text-4xl'}>Home</li>
-                <li className={'py-6 text-4xl'}>About</li>
-                <li className={'py-6 text-4xl'}>Skills</li>
-                <li className={'py-6 text-4xl'}>Projects</li>
-                <li className={'py-6 text-4xl'}>API</li>
-                <li className={'py-6 text-4xl'}>Contact</li>
+                <li className={'py-6 text-4xl'}>
+                    <Link onClick={handleClick} to="home" smooth={true} duration={500}>
+                        Home
+                    </Link>
+                </li>
+                <li className={'py-6 text-4xl'}>
+                    <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+                        About
+                    </Link>
+                </li>
+                <li className={'py-6 text-4xl'}>
+                    <Link onClick={handleClick} to="skills" smooth={true} duration={500}>
+                        Skills
+                    </Link>
+                </li>
+                <li className={'py-6 text-4xl'}>
+                    <Link onClick={handleClick} to="projects" smooth={true} duration={500}>
+                        Projects
+                    </Link>
+                </li>
+                <li className={'py-6 text-4xl'}>
+                    <Link onClick={handleClick} to="contact" smooth={true} duration={500}>
+                        Contact
+                    </Link>
+                </li>
             </ul>
 
             {/* social Icons*/}
@@ -44,25 +91,22 @@ const Navbar = () => {
                 <ul>
                     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600'>
                         <a className='flex justify-between items-center w-full text-gray-300'
-                           href='/'>
+                           href='https://www.linkedin.com/in/lucas-wagner-5b5405200/'>
                             LinkedIn <FaLinkedin size={30}/>
                         </a>
                     </li>
                     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg[#333333]'>
                         <a className='flex justify-between items-center w-full text-gray-300'
-                           href='/'>
+                           href='https://github.com/novatc'>
                             GitHub <FaGithub size={30}/>
                         </a>
                     </li>
-                    <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-amber-600'>
-                        <a className='flex justify-between items-center w-full text-gray-300'
-                           href='/'>
-                            Mail < HiOutlineMail size={30}/>
-                        </a>
-                    </li>
+
                     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gray-400'>
                         <a className='flex justify-between items-center w-full text-gray-300'
-                           href='/'>
+                           href={resumePdf}
+                           download='MyResume.pdf' // This will name the downloaded file as 'MyResume.pdf'
+                        >
                             Resume <BsFillPersonFill size={30}/>
                         </a>
                     </li>
