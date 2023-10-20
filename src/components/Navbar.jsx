@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {FaBars, FaTimes, FaGithub, FaLinkedin} from "react-icons/fa";
 import {BsFillPersonFill} from "react-icons/bs";
-import Logo from '../assets/logo.png'
+import Logo from '../assets/me.jpeg'
 import resumePdf from '../assets/CV.pdf'; // Adjust the path accordingly to your file structure
 
 import {Link} from 'react-scroll'
@@ -10,17 +10,10 @@ import {Link} from 'react-scroll'
 const Navbar = () => {
     const [nav, setNav] = useState(false)
     const handleClick = () => setNav(!nav)
-    const downloadPdf = () => {
-        // Replace 'your-pdf-url.pdf' with the actual URL of your PDF file.
-        const pdfUrl = '../assets/your-pdf-url.pdf';
-        window.open(pdfUrl, '_blank');
-    };
-
-
     return (
-        <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
+        <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-50'>
             <div>
-                <img src={Logo} style={{width: '80px'}}/>
+                <img src={Logo} className={"rounded-full py-4 px-4"} style={{width: '80px'}}/>
             </div>
 
             {/* Menu*/}
