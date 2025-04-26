@@ -11,8 +11,12 @@
     li {
         @apply px-4;
         @apply cursor-pointer
-
     }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
 }
 
 .content-div {

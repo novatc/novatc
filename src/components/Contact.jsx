@@ -8,7 +8,7 @@ const options = {
 };
 const Contact = () => {
     return (
-        <div id='contact' className='w-full h-screen bg-[#0a192f] flex justify-center items-center p-4'>
+        <div id='contact' className='w-full bg-[#0a192f] py-16 md:py-24 flex justify-center items-center px-4'>
             <form method='POST' action="https://getform.io/f/90cbd2cc-4862-476f-a3da-eeb7b0892450" className='flex flex-col max-w-[600px] w-full'>
                 <div className='pb-8'>
                     <p className='text-4xl font-bold inline border-b-4 border-pink-600 text-gray-300'>Contact</p>

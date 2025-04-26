@@ -1,6 +1,9 @@
 import React from 'react'
 import {HiArrowNarrowRight} from "react-icons/hi";
 import Me from '../assets/me.jpeg'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import { BsFillPersonFill } from 'react-icons/bs'
+import resumePdf from '../assets/CV.pdf'
 
 const Home = () => {
     return (
@@ -23,6 +26,18 @@ const Home = () => {
                             <HiArrowNarrowRight className='ml-3'/>
                         </span>
                     </button>
+                </div>
+                {/* Mobile social icons under intro */}
+                <div className='flex md:hidden justify-center mt-8 space-x-6'>
+                    <a href='https://www.linkedin.com/in/lucas-wagner-5b5405200/' target='_blank' rel='noopener noreferrer' className='text-gray-300 hover:text-pink-600'>
+                        <FaLinkedin size={30}/>
+                    </a>
+                    <a href='https://github.com/novatc' target='_blank' rel='noopener noreferrer' className='text-gray-300 hover:text-pink-600'>
+                        <FaGithub size={30}/>
+                    </a>
+                    <a href={resumePdf} download='MyResume.pdf' className='text-gray-300 hover:text-pink-600'>
+                        <BsFillPersonFill size={30}/>
+                    </a>
                 </div>
             </div>
 

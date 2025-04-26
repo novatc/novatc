@@ -18,37 +18,37 @@ const Navbar = () => {
 
             {/* Menu*/}
             <ul className='hidden md:flex'>
-                <li>
-                    <Link to="home" smooth={true} duration={500}>
+                <li className='px-4'>
+                    <Link to="home" smooth={true} spy={true} offset={-80} duration={500} activeClass="text-pink-600">
                         Home
                     </Link>
                 </li>
-                <li>
-                    <Link to="about" smooth={true} duration={500}>
+                <li className='px-4'>
+                    <Link to="about" smooth={true} spy={true} offset={-80} duration={500} activeClass="text-pink-600">
                         About
                     </Link>
                 </li>
-                <li>
-                    <Link to="skills" smooth={true} duration={500}>
+                <li className='px-4'>
+                    <Link to="skills" smooth={true} spy={true} offset={-80} duration={500} activeClass="text-pink-600">
                         Skills
                     </Link>
                 </li>
-                <li>
-                    <Link to="projects" smooth={true} duration={500}>
+                <li className='px-4'>
+                    <Link to="projects" smooth={true} spy={true} offset={-80} duration={500} activeClass="text-pink-600">
                         Projects
                     </Link>
                 </li>
-                <li>
-                    <Link to="contact" smooth={true} duration={500}>
-                        Projects
+                <li className='px-4'>
+                    <Link to="contact" smooth={true} spy={true} offset={-80} duration={500} activeClass="text-pink-600">
+                        Contact
                     </Link>
                 </li>
             </ul>
 
             {/* Hamburger*/}
-            <div onClick={handleClick} className='md:hidden z-10'>
+            <button onClick={handleClick} aria-label={nav ? 'Close menu' : 'Open menu'} className='md:hidden z-10 focus:outline-none'>
                 {!nav ? <FaBars/> : <FaTimes/>}
-            </div>
+            </button>
 
             {/* Mobile menu*/}
             <ul className={!nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'}>
@@ -80,7 +80,7 @@ const Navbar = () => {
             </ul>
 
             {/* social Icons*/}
-            <div className={'hidden lg:flex fixed flex-col top-[35%] left-0'}>
+            <nav className='hidden lg:flex fixed flex-col top-[35%] left-0 space-y-2'>
                 <ul>
                     <li className='w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600'>
                         <a className='flex justify-between items-center w-full text-gray-300'
@@ -105,7 +105,7 @@ const Navbar = () => {
                     </li>
                 </ul>
 
-            </div>
+            </nav>
 
         </div>
 
